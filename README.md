@@ -1,9 +1,11 @@
 <div align='center'>
 
 # Bongo Cat 
-Adds a tiny bongo cat to your status bar 😼
 
 ![bongocat](https://github.com/kitgore/BongoCat/assets/87792049/cd430b3e-968b-4e87-9c11-2aa2765d99de)
+
+Adds a tiny bongo cat to your status bar 😼
+
 
 </div>
 

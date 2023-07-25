@@ -11,6 +11,6 @@ Use `Toggle Bongo Cat` command to remove from status bar
 <br/>
 
 
-<img src="https://github.com/kitgore/BongoCat/assets/87792049/0c513230-6c48-40f7-9eb0-8a46a12c16d5" width="100">
+<img src="https://github.com/kitgore/BongoCat/assets/87792049/0c513230-6c48-40f7-9eb0-8a46a12c16d5" width="130">
 
 enjoy!

@@ -1,13 +1,26 @@
 {
   "name": "BongoCat",
   "displayName": "Bongo Cat",
-  "description": "bongo cat!!",
+  "description": "Adds a tiny bongo cat to your status bar 😼",
+  "publisher": "pixl-garden",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.80.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kitgore/BongoCat"
+  },  
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "bongo cat",
+    "bongocat",
+    "pet",
+    "buddy",
+    "cute",
+    "cat"
   ],
   "activationEvents": ["*"],
   "main": "./dist/extension.js",

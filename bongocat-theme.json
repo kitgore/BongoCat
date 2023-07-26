@@ -1,0 +1,29 @@
+{
+	"fonts": [
+		{
+			"id": "bongocat",
+			"src": [
+				{
+					"path": "./bongocat.woff",
+					"format": "woff"
+				}
+			],
+			"weight": "normal",
+			"style": "normal"
+		}
+	],
+	"iconDefinitions": {
+        "bg-leftup": {
+            "fontCharacter": "\\62"
+	},
+         "bg-leftdown": {
+            "fontCharacter": "\\64"
+	},
+         "bg-rightup": {
+            "fontCharacter": "\\63"
+	},
+        "bg-rightdown": {
+            "fontCharacter": "\\61"
+	}
+}
+}

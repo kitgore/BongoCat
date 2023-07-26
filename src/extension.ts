@@ -1,26 +1,55 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+export function activate({ subscriptions, extensionUri }: vscode.ExtensionContext) {
+  const statusTextArray = [`$(bg-leftup)$(bg-rightup)`, `$(bg-leftdown)$(bg-rightup)`, `$(bg-leftup)$(bg-rightdown)`];
+  let currentIndex = 0;
+  let leftWasLastDown = false;
+  let lastStateBeforeReset = currentIndex;
+  let timeout: NodeJS.Timeout | undefined;
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "BongoCat" is now active!');
+  // Variable to keep track of status bar visibility
+  let statusBarVisible = true;
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('BongoCat.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Bongo Cat!');
-	});
+  // Create the status bar item
+  const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right);
+  statusBarItem.text = `${statusTextArray[currentIndex]}`;
+  statusBarItem.show();
 
-	context.subscriptions.push(disposable);
+  const onTextChanged = vscode.workspace.onDidChangeTextDocument((event) => {
+    if (vscode.window.activeTextEditor && event.document === vscode.window.activeTextEditor.document) {
+      if(leftWasLastDown) {
+        currentIndex = 2;
+      } else {
+        currentIndex = 1;
+      }
+
+      leftWasLastDown = !leftWasLastDown;
+      statusBarItem.text = `${statusTextArray[currentIndex]}`;
+
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+
+      // Store the last state before the reset
+      lastStateBeforeReset = currentIndex;
+
+      // Reset to default state after half a second of no typing
+      timeout = setTimeout(() => {
+        currentIndex = 0;
+        statusBarItem.text = `${statusTextArray[currentIndex]}`;
+      }, 500); // 500 milliseconds = 0.5 seconds
+    }
+  });
+
+  // Command to toggle the status bar visibility
+  const toggleStatusBarCommand = vscode.commands.registerCommand('extension.toggleStatusBar', () => {
+    statusBarVisible = !statusBarVisible;
+    if (statusBarVisible) {
+      statusBarItem.show();
+    } else {
+      statusBarItem.hide();
+    }
+  });
+
+  subscriptions.push(onTextChanged, toggleStatusBarCommand);
 }
-
-// This method is called when your extension is deactivated
-export function deactivate() {}

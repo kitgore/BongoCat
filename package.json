@@ -9,15 +9,52 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": ["*"],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "BongoCat.helloWorld",
-        "title": "Hello World"
+        "command": "extension.toggleStatusBar",
+        "title": "Toggle Bongo Cat"
       }
-    ]
+    ],
+    "productIconThemes": [
+      {
+        "id": "bongocat",
+        "label": "Bongo Cat Icons",
+        "path": "./bongocat-theme.json"
+      }
+    ],
+    "icons": {
+      "bg-leftup": {
+        "description": "bg left up",
+        "default": {
+          "fontPath": "./theme/icomoon.woff",
+          "fontCharacter": "\\62"
+        }
+      },
+      "bg-leftdown": {
+        "description": "pg left down",
+        "default": {
+          "fontPath": "./theme/icomoon.woff",
+          "fontCharacter": "\\61"
+        }
+      },
+      "bg-rightup": {
+        "description": "bg right up",
+        "default": {
+          "fontPath": "./theme/icomoon.woff",
+          "fontCharacter": "\\61"
+        }
+      },
+      "bg-rightdown": {
+        "description": "bg",
+        "default": {
+          "fontPath": "./theme/icomoon.woff",
+          "fontCharacter": "\\61"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

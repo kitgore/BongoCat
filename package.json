@@ -4,6 +4,7 @@
   "description": "Adds a tiny bongo cat to your status bar 😼",
   "publisher": "pixl-garden",
   "version": "0.0.1",
+  "icon": "logo.png",
   "engines": {
     "vscode": "^1.80.0"
   },

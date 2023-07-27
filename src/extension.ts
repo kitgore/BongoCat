@@ -6,11 +6,7 @@ export function activate({ subscriptions, extensionUri }: vscode.ExtensionContex
   let leftWasLastDown = false;
   let lastStateBeforeReset = currentIndex;
   let timeout: NodeJS.Timeout | undefined;
-
-  // Variable to keep track of status bar visibility
   let statusBarVisible = true;
-
-  // Create the status bar item
   const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right);
   statusBarItem.text = `${statusTextArray[currentIndex]}`;
   statusBarItem.show();

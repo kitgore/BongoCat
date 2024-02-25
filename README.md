@@ -10,6 +10,9 @@ Use `Toggle Bongo Cat` command to remove from status bar
 
 <br/>
 
+**2/25/2024 Note** - We are aware there is an issue that breaks the extension for some users, we are working to replicate and identify the issue and make a fix soon!
+<br/>
+
 
 <img src="https://github.com/kitgore/BongoCat/assets/87792049/0c513230-6c48-40f7-9eb0-8a46a12c16d5" width="130">
 
